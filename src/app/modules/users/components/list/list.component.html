@@ -1,4 +1,6 @@
 <div class="container">
+
+    <!-- filter -->
     <div class="filter-container">
         <div class="filter" [class]="hideFilter?'filter--hide':''">
             <div (click)="hideFilter=!hideFilter" class="filter__header">
@@ -44,6 +46,9 @@
             </div>
         </div>
     </div>
+
+    <!-- cards -->
+
     <!-- without virtual scroll -->
     <!-- <div class="cards">
         <app-card *ngFor="let user of users" [user]="user"></app-card>
