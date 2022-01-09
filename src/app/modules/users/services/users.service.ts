@@ -13,10 +13,11 @@ export class UsersService {
     nat: String = '',
     gender: String = '',
     canExport: Boolean = false,
-    count: Number = 12
+    count: Number = 12,
+    include: String = 'gender,name,nat,dob,registered,location,email,phone,picture'
   ) {
     return this.httpClient.get(
-      getUsersUrl(page, nat, gender, canExport, count)
+      getUsersUrl(page, nat, gender, canExport, count, include)
     );
   }
 }

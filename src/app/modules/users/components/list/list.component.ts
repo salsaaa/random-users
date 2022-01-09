@@ -38,6 +38,7 @@ export class ListComponent implements OnInit {
     { label: 'Turkey', code: 'TR' },
     { label: 'United States', code: 'US' },
   ];
+
   constructor(private userService: UsersService) {}
   //without virtual scrolling
   // @HostListener('window:scroll', ['$event'])

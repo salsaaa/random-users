@@ -7,7 +7,7 @@ export class Location {
   city: String;
   state: String;
   country: String;
-  postcode: String;
+  postcode: Number;
   coordinates: Coordinates;
   timezone: TimeZone;
 }
