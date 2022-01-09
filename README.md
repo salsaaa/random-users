@@ -3,6 +3,11 @@
 This project views some random users (with specific data) you can scroll between them, you can filter them by gender and nationality and even export the list of users into .csv file. 
 project is created with libraries :  @angular/material: "~10.2.7" and it includes : unit test, docker file
 
+# Docker
+
+docker build -t random_users_angular .
+docker run -it --rm -p 4200:4200 --name random_users_angular-container random_users_angular
+
 # RandomUsers
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
