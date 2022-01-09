@@ -1,0 +1,116 @@
+@import "../../../../../styles.scss";
+.container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  column-gap: 20px;
+  .filter {
+    &-container {
+      width: 20%;
+      position: relative;
+      margin: 32px;
+    }
+    width: inherit;
+    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    border-radius: 2px;
+    padding: 20px;
+    background-color: $color--primary-light;
+    position: fixed;
+    z-index: 5;
+    transition: all 0.3s ease-in-out;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid $color--secondary;
+      padding-bottom: 20px;
+      align-items: center;
+      &__icon {
+        color: $color--fuschia;
+        display: flex;
+      }
+      &__text {
+        transition: all 0.3s ease-in-out;
+      }
+    }
+    &__body {
+      transition: all 0.3s ease-in-out;
+      &__items {
+        display: flex;
+        flex-direction: column;
+      }
+      &__item {
+        margin-top: 12px;
+      }
+      &__title {
+        margin-bottom: 16px;
+      }
+      &__category {
+        margin-top: 20px;
+      }
+      &__footer {
+        cursor: pointer;
+        font-size: 0.9rem;
+        text-decoration: underline;
+        transition: 0.5s ease-in-out;
+        color: $color--green-light;
+        &:hover {
+          color: whitesmoke;
+        }
+      }
+      &__label {
+        color: rgba(245, 245, 245, 0.626);
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .cards {
+    height: 100%;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    column-gap: 1rem;
+    row-gap: 7rem;
+    margin: 80px 0;
+    justify-content: center;
+  }
+}
+.virtual-scroll {
+  height: 100vh;
+  width: 71%;
+}
+
+@media only screen and (max-width: 621px) {
+  .filter-container {
+    // display: none;
+    width: 0 !important;
+    padding: 0;
+    margin: 0 !important;
+  }
+  .filter {
+    width: 16rem !important;
+    left: 0;
+    height: 100%;
+  }
+  .container {
+    justify-content: center;
+    column-gap: 0;
+  }
+  .filter--hide {
+    width: 22px !important;
+  }
+  .filter__header__text--hide {
+    display: none !important;
+  }
+  .filter__body--hide {
+    display: none !important;
+  }
+  .virtual-scroll {
+    width: 100% !important;
+  }
+  .cards {
+    // margin-left: 20% !important;
+    // width: 79% !important;
+  }
+}
