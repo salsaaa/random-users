@@ -1,22 +1,25 @@
 <div class="card">
     <div class="card__avatar">
-        <img src={{user?.picture.large}} alt="">
+        <img src={{user?.picture?.large}} alt="">
     </div>
     <div class="card__info">
-        <div class="card__title">{{user?.name.title}}.{{user?.name.first}} {{user?.name.last}}</div>
-        <div class="card__sub-title">{{user?.gender}} <small>{{user?.dob.age}} years old</small> </div>
-        <div class="card__paraghraph">registered {{user?.dob.age-user?.registered.age}} years ago</div>
+        <div *ngIf="user?.name" class="card__title">{{user?.name?.title}}.{{user?.name?.first}} {{user?.name?.last}}
+        </div>
+        <div *ngIf="user?.gender || user?.dob" class="card__sub-title">{{user?.gender}} <small>{{user?.dob?.age}} years
+                old</small> </div>
+        <div *ngIf="user?.registered && user?.dob" class="card__paraghraph">registered
+            {{user?.dob?.age-user?.registered?.age}} years ago</div>
         <div class="card__contacts">
-            <div class="card__contact">
+            <div *ngIf="user?.location" class="card__contact">
                 <mat-icon class="card__contact__icon"> location_on</mat-icon>
-                <div class="card__contact__text">{{user?.location.street.name}}, {{user?.location.city}},
-                    {{user?.location.country}}</div>
+                <div class="card__contact__text">{{user?.location?.street?.name}}, {{user?.location?.city}},
+                    {{user?.location?.country}}</div>
             </div>
-            <div class="card__contact">
+            <div *ngIf="user?.email" class="card__contact">
                 <mat-icon class="card__contact__icon"> email</mat-icon>
                 <div class="card__contact__text">{{user?.email}}</div>
             </div>
-            <div class="card__contact">
+            <div *ngIf="user?.phone" class="card__contact">
                 <mat-icon class="card__contact__icon"> phone</mat-icon>
                 <div class="card__contact__text">{{user?.phone}}</div>
             </div>

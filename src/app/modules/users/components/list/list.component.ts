@@ -15,7 +15,19 @@ export class ListComponent implements OnInit {
   page = 1;
   gender: String = '';
   nationalities = new FormControl();
+  columnsIncludes = new FormControl([
+    'gender',
+    'name',
+    'nat',
+    'dob',
+    'registered',
+    'location',
+    'email',
+    'phone',
+    'picture',
+  ]);
   stringNationalities: String = '';
+  stringColumnsIncludes: String = '';
   count: any = 60;
   hideFilter: Boolean = false;
 
@@ -39,6 +51,16 @@ export class ListComponent implements OnInit {
     { label: 'United States', code: 'US' },
   ];
 
+  includesList: Object[] = [
+    { label: 'Gender', key: 'gender' },
+    { label: 'Name', key: 'name' },
+    { label: 'Age', key: 'dob' },
+    { label: 'Resgistered Period', key: 'registered' },
+    { label: 'Location', key: 'location' },
+    { label: 'Email', key: 'email' },
+    { label: 'Phone', key: 'phone' },
+    { label: 'Picture', key: 'picture' },
+  ];
   constructor(private userService: UsersService) {}
   //without virtual scrolling
   // @HostListener('window:scroll', ['$event'])
@@ -61,13 +83,18 @@ export class ListComponent implements OnInit {
     if (this.nationalities.value) {
       this.stringNationalities = this.nationalities.value.toString();
     }
+    if (this.columnsIncludes.value) {
+      this.stringColumnsIncludes =
+        this.columnsIncludes.value.toString() + ',nat';
+    }
     this.userService
       .getUsers(
         this.page,
         this.stringNationalities,
         this.gender,
         false,
-        this.count
+        this.count,
+        this.stringColumnsIncludes
       )
       .subscribe(
         (users) => {
@@ -94,7 +121,8 @@ export class ListComponent implements OnInit {
       this.stringNationalities,
       this.gender,
       canExport,
-      this.count
+      this.count,
+      this.stringColumnsIncludes
     );
   }
 }
