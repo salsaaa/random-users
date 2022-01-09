@@ -1,8 +1,7 @@
 # Description 
 
-This project view some random users (with specific data) you can scroll between them, you can filter them by gender and nationality and even export the list of users into .csv file.
-used libraries :  @angular/material: "~10.2.7"
-includes : unit test, docker file
+This project views some random users (with specific data) you can scroll between them, you can filter them by gender and nationality and even export the list of users into .csv file. 
+project is created with libraries :  @angular/material: "~10.2.7" and it includes : unit test, docker file
 
 # RandomUsers
 
